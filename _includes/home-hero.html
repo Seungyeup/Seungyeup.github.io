@@ -14,6 +14,16 @@
           {% endif %}
 
           <div class="hero-buttons">
+            {% if site.blog_old_username != '' %}
+            <a href="https://{{ site.blog_old_username }}"
+              ><button class="btn btn-default btn-lg">
+                <i class="fa fa-history fa-lg"></i>History
+              </button></a
+            >
+            {% endif %}
+          </div>
+
+          <div class="hero-buttons">
             <!-- {% if site.blog_old_username != '' %}
             <a href="https://{{ site.blog_old_username }}"
               ><button class="btn btn-default btn-lg">
