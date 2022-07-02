@@ -1,98 +1,85 @@
-## Phantom for Jekyll
+<p align="right">
+    <a href="https://badge.fury.io/rb/just-the-docs"><img src="https://badge.fury.io/rb/just-the-docs.svg" alt="Gem version"></a> <a href="https://github.com/just-the-docs/just-the-docs/actions?query=workflow%3A%22main+branch+CI%22"><img src="https://github.com/just-the-docs/just-the-docs/workflows/main%20branch%20CI/badge.svg" alt="Build status"></a>
+</p>
+<br><br>
+<p align="center">
+    <h1 align="center">Just the Docs</h1>
+    <p align="center">A modern, highly customizable, and responsive Jekyll theme for documentation with built-in search.<br>Easily hosted on GitHub Pages with few dependencies.</p>
+    <p align="center"><strong><a href="https://just-the-docs.github.io/just-the-docs/">See it in action!</a></strong></p>
+    <br><br><br>
+</p>
 
-A minimalist, responsive portfolio theme for [Jekyll](http://jekyllrb.com/) with Bootstrap.
+![jtd](https://user-images.githubusercontent.com/896475/47384541-89053c80-d6d5-11e8-98dc-dba16e192de9.gif)
 
-![preview](preview.jpg)
+## Installation
 
-[See it in action](http://jamigibbs.github.io/phantom/).
+### via GitHub Pages remote theme
 
-## Fancy using it for your own site?
-
-Here are some steps to get you started:
-
-1. Clone this repo and cd into the directory:
-
-  ```bash
-  git clone https://github.com/jamigibbs/phantom.git your-dir-name && cd your-dir-name
-  ```
-
-2. Run:
-
-  ```bash
-  gem install bundler
-  bundle install
-  bundle exec jekyll serve
-  ```
-
-  You may need to append your commands with `sudo` if you're getting a permissions error.
-
-  _Don't have Jekyll yet? [Get `er installed then!](http://jekyllrb.com/docs/installation/)_
-
-3. Visit in your browser at:
-
-  `http://127.0.0.1:4000`
-
-## Launching with Github Pages :rocket:
-
-Jekyll + Github pages is a marriage made in heaven. You can [use your own custom domain name](https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/) or use the default Github url (ie. http://username.github.io/repository) and not bother messing around with DNS settings.
-
-## Theme Features
-
-### Navigation
-
-Navigation can be customized in `_config.yml` under the `nav_item` key. Default settings:
+The quickiest way to use Just The Docs is to use GitHub pages [remote theme](https://blog.github.com/2017-11-29-use-any-theme-with-github-pages/) feature in your `config.yml` file:
 
 ```yaml
-nav_item:
-    - { url: '/', text: 'Home' }
-    - { url: '/about', text: 'About' }
+remote_theme: just-the-docs/just-the-docs
+```
+### via RubyGems:
+
+Alternatively you can install it as a Ruby Gem.
+
+Add this line to your Jekyll site's Gemfile:
+
+```ruby
+gem "just-the-docs"
 ```
 
-Set the `nav_enable` variable to false in `_config.yml` to disable navigation.
+And add this line to your Jekyll site's `_config.yml`:
 
-### Contact Form
-
-You can display a contact form within the modal window template. This template is already setup to use the [Formspree](https://formspree.io) email system. You'll just want to add your email address to the form in `/_includes/contact-modal.html`.
-
-Place the modal window template in any place you'd like the user to click for the contact form.
-The template will display a link to click for the contact form modal window:
-
-```liquid
-{% include contact.html %}
-{% include contact-modal.html %}
+```yaml
+theme: just-the-docs
 ```
 
-### Animation Effects
+And then execute:
 
-Animations with CSS classes are baked into the theme. To animate a section or element, simply add the animation classes:
+    $ bundle
 
-```html
-<div id="about-me" class="wow fadeIn">
-  I'm the coolest!
-</div>
-```
+Or install it yourself as:
 
-For a complete list of animations, see the [animation list](http://daneden.github.io/animate.css/).
+    $ gem install just-the-docs
 
-### Pagination
+Alternatively, you can run it inside Docker while developing your site
 
-By default, pagination on the home page will activate after 10 posts. You can change this within `_config.yml`. You can add the pagination to other layouts with:
+    $ docker-compose up
 
-```liquid
-  {% for post in paginator.posts %}
-    {% include post-content.html %}
-  {% endfor %}
+## Usage
 
-  {% include pagination.html %}
-```
+[View the documentation](https://just-the-docs.github.io/just-the-docs/) for usage information.
 
-Read more about the [pagination plugin](http://jekyllrb.com/docs/pagination/).
+## Contributing
 
-## Credit
+Bug reports and pull requests are welcome on GitHub at https://github.com/just-the-docs/just-the-docs. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-* Bootstrap, http://getbootstrap.com/, (C) 2011 - 2016 Twitter, Inc., [MIT](https://github.com/twbs/bootstrap/blob/master/LICENSE)
+### Submitting code changes:
 
-* Wow, https://github.com/matthieua/WOW, (C) 2014 - 2016 Matthieu Aussaguel
-, [GPL](https://github.com/matthieua/WOW#open-source-license)
+- Open a [Pull Request](https://github.com/just-the-docs/just-the-docs/pulls)
+- Ensure all CI tests pass
+- Await code review
+- Bump the version number in `just-the-docs.gemspec` and `package.json` according to [semantic versioning](https://semver.org/).
 
-* Animate.css, https://github.com/daneden/animate.css, (C) 2016 Daniel Eden, [MIT](https://github.com/daneden/animate.css/blob/master/LICENSE)
+### Design and development principles of this theme:
+
+1. As few dependencies as possible
+2. No build script needed
+3. First class mobile experience
+4. Make the content shine
+
+## Development
+
+To set up your environment to develop this theme, run `bundle install`.
+
+A modern [devcontainer configuration](https://code.visualstudio.com/docs/remote/containers) for VSCode is included.
+
+Your theme is set up just like a normal Jekyll site! To test your theme, run `bundle exec jekyll serve` and open your browser at `http://localhost:4000`. This starts a Jekyll server using your theme. Add pages, documents, data, etc. like normal to test your theme's contents. As you make modifications to your theme and to your content, your site will regenerate and you should see the changes in the browser after a refresh, just like normal.
+
+When the theme is released, only the files in `_layouts`, `_includes`, and `_sass` tracked with Git will be released.
+
+## License
+
+The theme is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
