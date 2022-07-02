@@ -124,4 +124,5 @@ compress_html:
   #   envs: all
 
 # Add remote theme -> just the docs
-remote_theme: just-the-docs/just-the-docs
+# actually owner/repo-name
+remote_theme: Seungyeup/Seungyeup.github.io
