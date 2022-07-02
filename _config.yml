@@ -18,6 +18,10 @@ description: A Jekyll theme for documentation
 baseurl: "/my-records" # the subpath of your site, e.g. /blog
 url: "https://Seungyeup.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
+# Add remote theme -> just the docs
+# actually owner/repo-name
+remote_theme: just-the-docs/just-the-docs
+
 permalink: pretty
 exclude: ["node_modules/", "*.gemspec", "*.gem", "Gemfile", "Gemfile.lock", "package.json", "package-lock.json",  "script/", "LICENSE.txt", "lib/", "bin/", "README.md", "Rakefile"
 , "docs/tests/"
@@ -122,7 +126,3 @@ compress_html:
   profile: false
   # ignore:
   #   envs: all
-
-# Add remote theme -> just the docs
-# actually owner/repo-name
-remote_theme: Seungyeup/Seungyeup.github.io
